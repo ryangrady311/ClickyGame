@@ -1,0 +1,13 @@
+#title-block {
+  background-image: url("email-pattern.png");
+  position: relative
+}
+
+#scores{
+  position: absolute;
+  top: 50px;
+  right: 80px;
+
+
+
+}
