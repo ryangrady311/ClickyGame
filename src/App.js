@@ -20,7 +20,10 @@ class App extends Component {
   
   removeFriend = id => {
     // Filter this.state.friends for friends with an id not equal to the id being removed
-    const friends = this.state.friends.filter(friend => friend.id !== id);
+    //const friends = this.state.friends.filter(friend => friend.id !== id);
+    const friends = this.state.friends;
+
+    alert("The ID of this friend is... " + id);
     // Set this.state.friends equal to the new friends array
     this.setState({ friends });
   };
@@ -34,15 +37,18 @@ class App extends Component {
         <Title>Clicky Game!</Title>
        
         {shuffle(this.state.friends).map(friend => (
-          <FriendCard
+          <FriendCard 
+            removeFriend={this.removeFriend}
             id={friend.id}
             key={friend.id}
-            image={friend.image}
-          />
+            image={friend.image}>
+            </FriendCard>
         ))}
       </Wrapper>
     );
   }
+
+ 
 }
 
 export default App;

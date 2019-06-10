@@ -8,6 +8,7 @@ function Title(props) {
   <div className="container">
     <h2>Clicky Game</h2>      
     <p>Click one of the images below to start</p>
+    <p>Don't click the same picture twice</p>
   </div>
 
     <div id="scores">

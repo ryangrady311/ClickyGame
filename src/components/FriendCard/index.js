@@ -3,10 +3,11 @@ import "./style.css";
 
 function FriendCard(props) {
   return (
-    <div className="card">
-      <div className="img-container">
+    <div className="card remove" onClick={() => props.removeFriend(props.id)}>
+      <div className="img-container"  >
         <img alt={props.name} src={props.image} />
       </div>
+
      
      
     </div>
