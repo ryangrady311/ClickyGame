@@ -5,6 +5,11 @@ import Title from "./components/Title";
 import friends from "./friends.json";
 
 var shuffle = require('shuffle-array');
+
+var guessedArray = [];
+var score = 0;
+var highScore = 0;
+
  
 // shuffle(collection);
  
@@ -18,14 +23,42 @@ class App extends Component {
 
 
   
-  removeFriend = id => {
+  updateScore = id => {
     // Filter this.state.friends for friends with an id not equal to the id being removed
     //const friends = this.state.friends.filter(friend => friend.id !== id);
     const friends = this.state.friends;
 
-    alert("The ID of this friend is... " + id);
+    for (var i=0;i<guessedArray.length;i++){
+
+      if (id == guessedArray[i])
+      { 
+        //Set highscore
+
+        if (score > highScore){
+
+          highScore = score;
+
+        }
+
+        //Clear the array
+
+        guessedArray = [];
+
+        alert("You lost :(, the high score is " + highScore);
+        return this.setState({ friends });
+      }
+
+    }
+
+    
+    guessedArray.push(id);
+    
+    score = guessedArray.length;
+
+    alert ("the score is " + score);
+    
     // Set this.state.friends equal to the new friends array
-    this.setState({ friends });
+    return this.setState({ friends });
   };
 
   // Map over this.state.friends and render a FriendCard component for each friend object
@@ -38,7 +71,7 @@ class App extends Component {
        
         {shuffle(this.state.friends).map(friend => (
           <FriendCard 
-            removeFriend={this.removeFriend}
+            updateScore={this.updateScore}
             id={friend.id}
             key={friend.id}
             image={friend.image}>
