@@ -45,6 +45,7 @@ class App extends Component {
         guessedArray = [];
 
         alert("You lost :(, the high score is " + highScore);
+        score = 0;
         return this.setState({ friends });
       }
 
@@ -54,8 +55,6 @@ class App extends Component {
     guessedArray.push(id);
     
     score = guessedArray.length;
-
-    alert ("the score is " + score);
     
     // Set this.state.friends equal to the new friends array
     return this.setState({ friends });
@@ -67,14 +66,19 @@ class App extends Component {
     
     return (
       <Wrapper>
-        <Title>Clicky Game!</Title>
+        <Title
+          score={score}
+          highScore={highScore}
+        >Clicky Game!</Title>
        
         {shuffle(this.state.friends).map(friend => (
           <FriendCard 
             updateScore={this.updateScore}
             id={friend.id}
             key={friend.id}
-            image={friend.image}>
+            image={friend.image}
+            
+            >
             </FriendCard>
         ))}
       </Wrapper>

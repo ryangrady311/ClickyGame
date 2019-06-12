@@ -12,8 +12,8 @@ function Title(props) {
   </div>
 
     <div id="scores">
-    <p>Current Score: </p>
-    <p>High Score: </p>
+    <p>Current Score: {props.score}</p>
+    <p>High Score: {props.highScore}</p>
 
     </div>
 
