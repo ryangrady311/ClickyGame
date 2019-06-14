@@ -1,6 +1,7 @@
 #title-block {
   background-image: url("email-pattern.png");
-  position: relative
+  position: relative;
+  width: 100%
 }
 
 #scores{
